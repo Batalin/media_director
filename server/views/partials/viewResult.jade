@@ -1,0 +1,18 @@
+.container
+    .result-layout
+        div(class="row")
+            div.col-md-6.col-md-offset-3.col-lg-6.col-lg-offset-3
+                canvas(id="canvas").result-canvas
+            br
+            div(class="col-md-3", id="controls").col-md-6.col-md-offset-3.col-lg-6.col-lg-offset-3
+                div(class="btn-group")
+                    input(type="button", ng-click="play()", value="{{play_pause}}", class="btn btn-video btn-video-control btn-md", id="buttonPlay")
+                    input(type="button", ng-click="restart();", value="Restart", class="btn btn-video btn-video-control btn-md", id="buttonRestart")
+                    input(type="button", ng-click="mute();", value="Mute", class="btn btn-video btn-video-control btn-md", id="buttonMute")
+                    span.glyphicon.glyphicon-volume-off(ng-show="muted")
+        div(class="row video-row")
+            div(class="col-md-9")
+                canvas(id="hideVideo")
+                    video(id="video", controls, loop)
+                        //DATABASE
+                        source(src="../assets/assignments/#{video_path}/lineviewOutM.mp4", type="video/mp4")

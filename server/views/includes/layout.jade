@@ -1,0 +1,59 @@
+doctype html
+html
+    head
+        title= title
+        link(rel='stylesheet', href="stylesheets/bootstrap.css")
+        link(rel="stylesheet", href="stylesheets/toastr.min.css")
+        link(rel="stylesheet",href="stylesheets/style.css")
+        script(src="alienJS/jquery-1.11.3.js")
+        script(src="alienJS/bootstrap.js")
+        script(src="alienJS/angular/angular.js")
+        script(src="alienJS/angular-route/angular-route.js")
+        script(src="alienJS/angular-resource/angular-resource.js")
+    body(ng-app='app')
+        include currentUser
+        .container
+            nav.navbar.navbar-inverse.navbar-fixed-top(ng-controller="LoginCtrl")
+                div(class="container-fluid")
+                    div(class="navbar-header")
+                        a(class="navbar-brand", href="/") Mebop
+                    div(class="collapse navbar-collapse", id="bs-example-navbar-collapse-1")
+                        ul(ng-show="identity.isAuthenticated()", class="nav navbar-nav")
+                            li(id='Home')
+                                a(href="/") Home
+                            li(id='Assignments')
+                                a(href="/assignments") Assignments
+                            li(id='Forum')
+                                a(href="/forum") Forum
+                        div
+                            .navbar-right
+                                form.navbar-form(ng-hide="identity.isAuthenticated()")
+                                    ul.nav.navbar-nav
+                                        li
+                                            a(href="/register") Register
+                                    .form-group
+                                        input.form-control(placeholder="Email", ng-model="loginName")
+                                    .form-group
+                                        input.form-control(type="password", placeholder="password", ng-model="password")
+                                    button.btn.btn-primary(ng-click="signin(loginName, password)") Sign in
+                                ul.nav.navbar-nav.navbar-right(ng-show="identity.isAuthenticated()")
+                                    li.dropdown
+                                        a.dropdown-toggle(href="", data-toggle="dropdown")
+                                            | {{identity.currentUser.firstName + " " + identity.currentUser.lastName}}
+                                            b.caret
+                                        ul.dropdown-menu
+                                            li(ng-show="identity.currentUser.isAdmin()")
+                                                a(href="/admin/users") Users
+                                            li(ng-show="identity.currentUser.isAdmin()")
+                                                a(href="/admin/groups") Groups
+                                            li
+                                                a(href="/profile") Profile
+                                            li
+                                                a(href="", ng-click="signout()") Sign Out
+        .wrapper
+            .content
+            block content
+            .push
+
+        include footer
+        include scripts

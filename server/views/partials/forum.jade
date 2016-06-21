@@ -1,0 +1,43 @@
+.container
+    div.forum-topics.table-responsive.col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1
+        table.table
+            thead
+                th Topic
+                th Author
+                th Replies
+                th Recent Comment by
+                th date
+                //th(ng-show="!identity.currentUser.isAdmin()") Delete
+            tbody
+                tr(ng-repeat="topic in topics")
+                    td
+                        a(href="/forum/{{topic.title}}/{{topic._id}}") {{topic.title}}
+                        //a(href="/assignments/:id") {{assignment.title}}
+                    td {{topic.author}}
+                    td {{topic.replies}}
+                    td {{topic.lastCommentAuthor}}
+                    td {{topic.date}}
+                        //td(ng-show="identity.currentUser.isAdmin() || userEquals(identity.currentUser,topic.authorId)")
+                        input(ng-show="identity.currentUser.isAdmin() || userEquals(identity.currentUser,topic.authorId)",type="button", ng-click="deleteTopic(topic._id)", name="remove", value="Remove").btn.btn-danger
+        br
+        br
+        div
+
+            form(name="topicForm", id="topicForm")
+                h4 Create New Topic:
+                div(id="uploadTable", class="table-responsive uploadTable")
+                    table(class="table table-inverse")
+                        tr
+                            th Title
+                            td
+                                input(ng-model="title",type="text", name="title",form="topicForm")
+                        tr
+                            th(colspan="2") Message:
+                        tr
+                            td(colspan="2")
+                                textarea(ng-model="message", name="message",rows="5",form="topicForm")
+                    input(ng-click="newTopic()", type="submit", value="Submit").btn.btn-default
+
+
+
+        br

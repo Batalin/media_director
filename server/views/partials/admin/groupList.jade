@@ -1,0 +1,21 @@
+.container
+    div(align="center")
+        a.btn(href="/admin/new-group") Add new group
+    br
+    div.assignments.table-responsive.col-lg-8.col-lg-offset-2
+        table.table
+            thead
+                th Group title
+                th Created
+                th Members
+                th
+            tbody
+                tr(ng-repeat="group in groups")
+                    td
+                        a(href="/admin/groups/{{group._id}}") {{group.title}}
+                    td {{group.created}}
+                    td {{group.members.length}}
+                    td
+                        input(type="button", ng-click="deleteGroup(group._id)", name="remove", value="Remove").btn.btn-danger
+
+

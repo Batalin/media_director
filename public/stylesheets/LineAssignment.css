@@ -1,0 +1,138 @@
+body {
+    background: #1a1a1a;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#canvasPreview {/*
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    left: 75%;
+    right: 0;*/
+    width: 640px;
+    height: 360px;
+    background: darkgreen;
+
+}
+#canvasRecord {
+    /*
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    left: 25%;
+    right: 0;*/
+    width: 640px;
+    height: 360px;
+    background: darkred;
+
+}
+#time{
+/*    position: absolute;
+    top: 8%;
+    bottom: 0;
+    left: 50%;
+    right: 0;
+    width: 250px;
+    height: 75px;
+
+    margin: 0px 0 0 -125px;*/
+
+}
+
+#video {
+    background: white;
+/*
+    position: relative;
+    horiz-align: center;
+    top: 90%;
+    left: 50%;
+    margin-left: -50%;*/
+}
+
+#controls{
+    /*position: absolute;
+    top:10%;*/
+}
+.btn-video {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+
+.btn-video-control{
+    background: darkblue;
+    color: #ffffff;
+}
+.btn-video-control:focus{
+    color:#ffffff;
+}
+
+.btn-video-control:hover, .btn-video-control:active, .btn-video-control.active, .open > .dropdown-toggle.btn-video-control {
+    background: mediumblue;
+    color:#ffffff;
+}
+
+.btn-preview{
+    background: darkgreen;
+    color: #ffffff;
+}
+
+.btn-preview:hover, .btn-preview:active, .btn-preview.active, .open > .dropdown-toggle.btn-preview{
+    background: forestgreen;
+    color: #ffffff;
+}
+.btn-preview-active {
+    background: lawngreen;
+    color: #ffffff;
+}
+.btn-preview:focus{
+    color:#ffffff;
+}
+.btn-record{
+    background: darkred;
+    color: #ffffff;
+}
+
+.btn-record:hover, .btn-record:active, .btn-record.active, .open > .dropdown-toggle.btn-record{
+    background: orangered;
+    color: #ffffff;
+}
+.btn-record-active {
+    background: red;
+    color: #ffffff;
+}
+.btn-record:focus{
+    color:#ffffff;
+}
+.btn-take {
+    background: brown;
+    color: #ffffff;
+}
+
+.btn-take:focus{
+    color:#ffffff;
+}
+
+.btn-take:hover, .btn-take:active, .btn-take.active, .open > .dropdown-toggle.btn-take {
+    background: orangered;
+    color:#ffffff;
+}
+.btn-group{
+    margin-bottom: 10px;
+}
+.btn-group-vertical{
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+#controls{
+    padding-left: 50px;
+}

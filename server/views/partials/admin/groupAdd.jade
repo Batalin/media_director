@@ -1,0 +1,17 @@
+//
+   Created by olegba on 22/04/16.
+.container
+    .well
+        form.form-horizontal(name="newGroupForm")
+            fieldset
+                legend New Group Information
+                .form-group
+                    label.col-md-2.control-label(for="title") Group Title
+                    .col-md-10
+                        input.form-control(name="title", type="text", placeholder="Title", ng-model="title", required)
+                .form-group
+                    .col-md-10.col-md-offset-2
+                        .pull-right
+                            button.btn.btn-primary(ng-click="createGroup()", ng-disabled="newGroupForm.$invalid") Submit
+                            | &nbsp;
+                            a.btn.btn-default(href="/admin/groups") Cancel

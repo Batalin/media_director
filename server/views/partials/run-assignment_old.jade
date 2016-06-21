@@ -1,0 +1,52 @@
+.container
+    div(class="row")
+        div(class="col-md-1 col-md-offset-4")
+            canvas(id="time")
+    div(class="row")
+        div(class="col-md-4")
+            canvas(id="canvasRecord")
+            div.container
+                div.container
+                    input.form-control(type="text", placeholder="subtitles", id="subtitle_text")
+                    input(type="number" min="0" max="30" default="5" id="subtitle_duration")
+                    input.btn.btn-video-control(type="button" onclick="add_subtitle()" value="Add subtitle")
+        div.col-md-1
+            div.btn.btn-video-control fade in
+            input(type="number", min="0", max="30" default="0" id="fade_duration")
+            div.btn.btn-video-control fade out
+        div(class="col-md-4")
+            canvas(id="canvasPreview")
+            button.btn.btn-video-control(type="button", onclick="preview_subtitle()") preview
+            button.btn.btn-video-control(type="button", onclick="record_subtitle()") record
+            div.container
+                ul.list-group(id="subtitles")
+        div(class="col-md-3", id="controls")
+            div.btn-group
+                input(type="button", ng-click="playVideo();", value="Record", class="btn btn-video btn-video-control btn-md", id="buttonPlay")
+                input(type="button", ng-click="pauseVideo();", value="Restart", class="btn btn-video btn-video-control btn-md", id="buttonRestart")
+                input(type="button", onclick="mute();", value="Mute", class="btn btn-video btn-video-control btn-md", id="buttonMute")
+            div
+                input(type="button", onclick="finish();", value="Finish", class="btn btn-video btn-record btn-md", id="buttonFinish")
+            br
+            div.btn-group-vertical
+                input.btn.btn-video.btn-preview.btn-lg(type="button", ng-click="preview(1)", value="1", ng-class="{'btn-record-active': previewButtons[0]}")
+                input.btn.btn-video.btn-preview.btn-lg(type="button", ng-click="preview(2)", value="2")
+                input.btn.btn-video.btn-preview.btn-lg(type="button", ng-click="preview(3)", value="3")
+                input.btn.btn-video.btn-preview.btn-lg(type="button", ng-click="preview(4)", value="4")
+            div.btn-group-vertical
+                input.btn.btn-video.btn-record.btn-lg(type="button", ng-click="record(1)", value="1")
+                input.btn.btn-video.btn-record.btn-lg(type="button", ng-click="record(2)", value="2")
+                input.btn.btn-video.btn-record.btn-lg(type="button", ng-click="record(3)", value="3")
+                input.btn.btn-video.btn-record.btn-lg(type="button", ng-click="record(4)", value="4")
+            br
+            div
+                input(type="button", onclick="record()", value="Take", class="btn btn-video btn-take btn-lg", id="buttonTake")
+            div(id="final")
+                a(id="finalButton" href="" class="btn btn-default btn-md") View Result
+    div(class="row video-row")
+        div(class="col-md-9")
+            canvas(id="canvasVideo")
+                video(id="video", controls, loop)
+                    //DATABASE
+                    source(src="../assets/assignments/#{video_path}/lineviewOut.mp4", type="video/mp4")
+

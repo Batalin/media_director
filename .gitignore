@@ -1,0 +1,10 @@
+.idea
+node_modules
+bower_components
+public/assets/*
+server/files/*
+data/*
+data/db
+data/diagnostic.data
+data/journal
+data

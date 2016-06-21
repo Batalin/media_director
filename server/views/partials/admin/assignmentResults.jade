@@ -1,0 +1,9 @@
+.container
+    h3 Results by groups, by users
+    ul(ng-init="grouphide=true" ng-repeat="group in groups")
+        li(ng-click="grouphide = !grouphide") {{group.title}}
+        ul(ng-hide="grouphide" ng-repeat="member in group.members")
+            li(ng-init="memberhide=true" ng-click="memberhide = !memberhide") {{member.name}}
+                ul(ng-hide="memberhide" ng-repeat="video in videos" ng-init="videohide=(video.user==member.id && video.assignment==assignment._id)")
+                    li(ng-show="videohide")
+                        a(href="/videos/{{assignment.title.split(' ').join('_') + assignment._id}}__{{video._id}}") {{video.created}}

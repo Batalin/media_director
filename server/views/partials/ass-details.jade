@@ -1,0 +1,44 @@
+.container
+    .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1
+        h2 {{assignment.title}}
+        a.btn.btn-runAssignment(href="/run-assignmentL/{{assignment.title.split(' ').join('_') + '__' + assignment._id}}/320") Run assignment 320px
+        a.btn.btn-runAssignment(href="/run-assignmentM/{{assignment.title.split(' ').join('_') + '__' + assignment._id}}/480") Run assignment 480px
+        br
+        div.row
+            div.col-md-3
+                h4 Description
+            div.col-md-3
+                h4 {{assignment.description}}
+        div.row
+            div.col-md-3
+                h4 Task
+            div.col-md-3
+                h4 {{assignment.task}}
+        div.row
+            div.col-md-3
+                h4 Duration
+            div.col-md-3
+                h4 {{assignment.duration}}
+        div.row
+            div.col-md-3
+                h4 Inputs
+            div.col-md-3
+                h4 {{assignment.input_number}}
+
+        br
+        h2 Watch done assignments:
+        div.row
+            div.col-md-3
+                h4 Created:
+            div.col-md-3
+                h4 Duration:
+        div.row.tab-content(ng-repeat="video in videos")
+            div.col-md-3
+                h4
+                    a(href="/videos/{{assignment.title.split(' ').join('_') + assignment._id}}__{{video._id}}") {{video.created}}
+            div.col-md-3
+                h4 {{video.duration}}
+            div.col-md-2
+                input(ng-click="delete_video(video._id)", type="button", name="remove", value="Remove", id="{{video._id}}").btn.btn-danger
+
+

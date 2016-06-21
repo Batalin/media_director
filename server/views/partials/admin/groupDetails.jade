@@ -1,0 +1,41 @@
+.container
+    button.btn.btn-info.btn-lg(ng-click="filterUsers()" type="button" data-toggle="modal" data-target="#myModal") Add users
+    div.modal.fade(id="myModal" role="dialog")
+        div.modal-dialog
+            div.modal-content
+                div.modal-header
+                    button.close(type="button" data-dismiss="modal") X
+                    h4 Select users from the list
+                div.modal-body
+                    ul.nav(style="max-height: 100px; overflow-y:scroll;" ng-repeat="user in filteredUsers")
+                        li
+                            input(type="checkbox" name="{{user.loginName}}" id="{{user.loginName}}" ng-model="user.checked" ng-change="selectUsers()")
+                            label(for="{{user.loginName}}") {{user.firstName + " " + user.lastName}}
+                div.modal-footer
+                    button.btn.btn-default(type="button" data-dismiss="modal" ng-click="addUsersToGroup()") OK
+    //button.btn.btn-info.btn-lg(type="button" data-toggle="modal" data-target="#myModal") Remove users
+    //div.modal.fade(id="myModal" role="dialog")
+        div.modal-dialog
+            div.modal-content
+                div.modal-header
+                    button.close(type="button" data-dismiss="modal") X
+                    h4 Select users from the list
+                div.modal-body
+                    ul.nav(style="max-height: 100px; overflow-y:scroll;" ng-repeat="user in group.members")
+                        li
+                            input(type="checkbox" name="{{user.name}}" id="{{user.name}}" ng-model="user.checked" ng-change="removeUsers()")
+                            label(for="{{user.name}}") {{user.name}}
+                div.modal-footer
+                    button.btn.btn-default(type="button" data-dismiss="modal" ng-click="removeUserFromGroup()") OK
+    h3.panel-title(align="center") {{group.title}}
+    br
+    div.assignments.table-responsive.col-lg-8.col-lg-offset-2
+        table.table
+            thead
+                th Name
+                th
+            tbody
+                tr(ng-repeat="member in group.members" )
+                    td {{member.name}}
+                    td
+                        input(type="button", ng-click="removeUserFromGroup(member.id)", name="remove", value="Remove").btn.btn-danger

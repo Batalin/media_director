@@ -1,0 +1,19 @@
+.container
+    table.table
+        thead
+            td #
+            td Name
+            td Email
+            td Roles
+            td
+        tr(ng-repeat="user in users")
+            td {{$index}}
+            td {{user.firstName + " " + user.lastName}}
+            td {{user.loginName}}
+            td {{user.roles[0]}}
+            td(ng-hide="identity.roles.contains('admin')")
+                input(ng-click="addAdminRole(user)" type="button" value="Add admin role").btn-default
+
+
+
+

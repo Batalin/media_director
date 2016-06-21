@@ -1,0 +1,25 @@
+.container
+    div.assignments.table-responsive.col-lg-8.col-lg-offset-2
+        table.table
+            thead
+                th Assignment Name
+                th Length
+                th Inputs
+                th Description
+                th Task
+                th
+            tbody
+                tr(ng-repeat="assignment in assignments| filter: { duration: '!--'}")
+                    td
+                        a(href="/assignments/{{assignment._id}}") {{assignment.title}}
+                        //a(href="/assignments/:id") {{assignment.title}}
+                    td {{assignment.duration}}
+                    td {{assignment.input_number}}
+                    td {{assignment.description}}
+                    td {{assignment.task}}
+                        input(ng-show="identity.currentUser.isAdmin()",type="button", ng-click="deleteAssignment(assignment._id)", name="remove", value="Remove").btn.btn-danger
+                    td
+                        a.btn(ng-show="identity.currentUser.isAdmin()", href="/assignment_results/{{assignment._id}}") View results
+        div
+            button(ng-show="identity.currentUser.isAdmin()", onclick="location.href='/new_assignment';", class="btn") Add new assignments
+        br

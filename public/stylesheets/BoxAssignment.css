@@ -1,0 +1,38 @@
+body {
+    background: #1a1a1a;
+}
+
+#canvas {
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    left: 75%;
+    right: 0;
+    width: 640px;
+    height: 360px;
+    background: darkred;
+    margin: -180px 0 0 -320px;
+}
+#time{
+    position: absolute;
+    top: 8%;
+    bottom: 0;
+    left: 50%;
+    right: 0;
+    width: 250px;
+    height: 75px;
+
+    margin: 0px 0 0 -125px;
+
+}
+
+#video {
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+
+    margin: -180px 0 0 -320px;
+
+
+}

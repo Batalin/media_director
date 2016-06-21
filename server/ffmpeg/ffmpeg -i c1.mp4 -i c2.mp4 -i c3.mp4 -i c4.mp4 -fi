@@ -1,0 +1,40 @@
+ffmpeg -i c1.mp4 -i c2.mp4 -i c3.mp4 -i c4.mp4 -filter_complex "nullsrc=size=640x480 [base]; [0:v] setpts=PTS-STARTPTS, scale=320x240 [upperleft]; [1:v] setpts=PTS-STARTPTS, scale=320x240 [upperright]; [2:v] setpts=PTS-STARTPTS, scale=320x240 [lowerleft]; [3:v] setpts=PTS-STARTPTS, scale=320x240 [lowerright]; [base][upperleft] overlay=shortest=1 [tmp1]; [tmp1][upperright] overlay=shortest=1:x=320 [tmp2]; [tmp2][lowerleft] overlay=shortest=1:y=240 [tmp3]; [tmp3][lowerright] overlay=shortest=1:x=320:y=240" -c:v libx264 lineView.mp4
+
+
+ffmpeg -ss 00:00:00 -t 00:00:10 -i C1.mp4 -acodec copy -vcodec copy -async 1 cut.mp4
+
+
+create one video of four, in line view:
+
+ffmpeg -i C1.mp4 -i C2.mp4 -i C3.mp4 -i C4.mp4 -filter_complex "nullsrc=size=1280x180 [base]; [0:v] setpts=PTS-STARTPTS, scale=320x180 [upperleft]; [1:v] setpts=PTS-STARTPTS, scale=320x180 [upperright]; [2:v] setpts=PTS-STARTPTS, scale=320x180 [lowerleft]; [3:v] setpts=PTS-STARTPTS, scale=320x180 [lowerright]; [base][upperleft] overlay=shortest=1 [tmp1]; [tmp1][upperright] overlay=shortest=1:x=320 [tmp2]; [tmp2][lowerleft] overlay=shortest=1:x=640:y=0 [tmp3]; [tmp3][lowerright] overlay=shortest=1:x=960:y=0" -c:v libx264 lineviewOut.mp4
+
+
+create one video of four, in box view:
+
+ffmpeg -i C1.mp4 -i C2.mp4 -i C3.mp4 -i C4.mp4 -filter_complex "nullsrc=size=640x360 [base]; [0:v] setpts=PTS-STARTPTS, scale=320x180 [upperleft]; [1:v] setpts=PTS-STARTPTS, scale=320x180 [upperright]; [2:v] setpts=PTS-STARTPTS, scale=320x180 [lowerleft]; [3:v] setpts=PTS-STARTPTS, scale=320x180 [lowerright]; [base][upperleft] overlay=shortest=1 [tmp1]; [tmp1][upperright] overlay=shortest=1:x=320 [tmp2]; [tmp2][lowerleft] overlay=shortest=1:y=180 [tmp3]; [tmp3][lowerright] overlay=shortest=1:x=320:y=180" -c:v libx264 output.mp4
+
+
+concatenate two videos in mpeg format:
+ffmpeg -i "concat:cut.mpg|cut1.mpg" -c copy output.mpg
+
+
+convert mp4 to mpeg version 2 format, -qscale - quality from 1 ot 31, 1 is the best quality:
+ffmpeg -i c4.mp4 -c:v mpeg2video -qscale:v 5 c4.mpg
+
+cut video with the same quality as original one:
+ffmpeg -i c2.mpg -ss 00:00:03 -t 00:00:08 -async 1 -acodec copy -vcodec copy cut2_2.mpg
+
+
+cutting and concatenating order:
+
+1. Cut a piece from the original source:
+    if it is the first cut operation, then cut saves as a result.mpg:
+    ffmpeg -i public/assets/assignment1/videos/c2.mpg -ss 00:00:10 -t 00:00:5 -async 1 -acodec copy -vcodec copy -y public/assets/results/assignment1/result.mpg
+    otherwise to cut.mpg:
+    ffmpeg -i public/assets/assignment1/videos/c2.mpg -ss 00:00:10 -t 00:00:5 -async 1 -acodec copy -vcodec copy -y public/assets/results/assignment1/cut.mpg
+
+2. Concatenation with the temporary result file:
+ffmpeg -i "concat:public/assets/results/assignment1/result.mpg|public/assets/results/assignment1/cut.mpg" -c copy -y public/assets/results/assignment1/result_temp.mpg
+
+3. Copying temporary result and replacing the final result file:
+cp public/assets/results/assignment1/result_temp.mpg public/assets/results/assignment1/result.mpg

@@ -1,0 +1,502 @@
+* {
+  margin: 0;
+}
+body {
+  padding-top: 60px;
+  background: #1a1a1a;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height: 100%;
+}
+.container {
+    clear:both;
+    /*position: absolute;*/
+}
+
+p, h1, h2, h4, h5{
+  color: whitesmoke;
+}
+
+.wrapper a{
+    color:brown;
+    font-weight: 700;
+    font-size:16px;
+}
+a:hover{
+    color:darkred;
+}
+/*START Main page css*/
+.navbar{
+    min-height:64px;
+}
+.main-background{
+    font-family: Verdana,Geneva,sans-serif;
+    padding:0;
+    margin-top:-50px;
+    /*background-image:url('rsz_1landing.png');*/
+    /*background-size:cover;*/
+    position: relative;
+    width: 100%;
+}
+
+.main-background-layer {
+    background-color: rgba(7, 7, 95, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align:center;
+
+}
+.mbg-text{
+    background-color: rgba(10, 0, 0, 0.5);
+    /*position:absolute;*/
+    position: relative;
+    padding: 30px 30px 30px 30px;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    width:70%;
+    vartical-align:center;
+    font-size:36px;
+    color: white;
+    border-radius: 5px;
+
+}
+.main-content{
+    font-family: Verdana,Geneva,sans-serif;
+}
+.main-content > p > a {
+  color: darkred;
+  font-weight: 700;
+}
+
+.main-content > h1 {
+
+    color: brown;
+    font-weight: 700;
+
+
+}
+
+.main-content > p {
+    background-color: whitesmoke;
+    color: #333333;
+    font-family: "Helvetica Neue",Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5625;
+    margin-bottom: 15px;
+    padding: 10px 10px 10px 10px;
+    /*border-style:outset;*/
+    border-radius: 5px;
+    border-width: 2px;
+}
+img {
+    border-style: solid;
+    border-width: thin;
+
+    border-color: black;
+}
+.instructions01{
+    /*background-image:url('instructions01.png');
+    background-size:contain;*/
+    position: relative;
+    width: 100%;
+}
+.instructions02{
+    /*background-image:url('instructions02.png');
+    background-size:contain;*/
+    position: relative;
+    width: 100%;
+}
+.instructions03{
+   /* background-image:url('instructions03.png');
+    background-size:contain;*/
+    position: relative;
+    width: 100%;
+}.instructions04{
+     /*background-image:url('instructions04.png');
+     background-size:contain;*/
+     position: relative;
+     width: 100%;
+ }
+.instructions05{
+    background-image:url('instructions05.png');
+    background-size:contain;
+    position: relative;
+    width: 100%;
+}
+.instructions06{
+    /*background-image:url('instructions06.png');
+    background-size:contain;*/
+    position: relative;
+    width: 100%;
+}
+/*END Main Page css*/
+
+/*START Forum topic css*/
+.forum-topic >div> p > a {
+    color: darkred;
+    font-weight: 700;
+}
+
+.forum-topic >div> h2 {
+
+    color: brown;
+    font-weight: 500;
+    font-size:175%;
+
+
+}
+
+.forum-topic > div > p {
+    background-color: whitesmoke;
+    color: #333333;
+    font-family: "Helvetica Neue",Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5625;
+    margin-bottom: 15px;
+    padding: 10px 10px 10px 10px;
+    /*border-style:outset;*/
+    border-radius: 5px;
+    border-width: 2px;
+}
+.forum-topic > div > p > textarea {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width:100%;
+    height:auto;
+    resize: none;
+}
+.forum-topic > div > p >input{
+    float: right;
+    margin-left: 4px;
+}
+.forum-topics > table > tbody > tr > td > input{
+    float: right;
+    /*color:black;
+    background-color: whitesmoke;*/
+}
+.btn-forum{
+    margin-top:0px;
+    margin-left:5px;
+    margin-bottom:10px;
+}
+/*END Forum topic css*/
+
+/*Start Assignments Table*/
+.assignments > table > tbody > tr > td > input{
+    float: right;
+    /*color:black;
+    background-color: whitesmoke;*/
+}
+
+/*End Assignments Table*/
+html, body {
+  height: 100%;
+}
+.wrapper {
+
+  padding-top: 50px;
+  padding-left: 0px;
+  padding-right: 0px;
+  min-height: 100%;
+  height: auto !important; /*IE6*/
+  height: 100%; /*IE6*/
+  margin: 0 auto -70px; /* the bottom margin is the negative value of the footer's height */
+}
+.body{
+  position:relative;
+}
+
+/*FOOTER CSS*/
+.footer{
+  margin-top:50px;
+  text-align: center;
+  font-size: 16px;
+  color: whitesmoke;
+  padding: 10px 10px 10px 10px;
+  background-color: #2a2a2a;
+  width: 100%;
+  position:absolute;
+  left: 0;
+  right: 0;
+
+  z-index: 150;
+}
+.push {
+  clear:both;
+}
+
+.push, .footer{
+    min-height: 70px; /* .push must be the same height as .footer */
+}
+
+
+.table-header{
+  background-color: snow;
+}
+.table-row{
+  background-color: snow;
+}
+.wrapper tr > td > a, tr > td > a:hover {
+  color:whitesmoke;
+  font-weight: 900;
+}
+td{
+  color:ghostwhite;
+  font-size:16px;
+}
+th{
+    color:brown;
+    font-size: 18px;
+}
+/*Start Upload Page*/
+#upload-notification > p {
+    background-color: whitesmoke;
+    color: brown;
+    font-family: "Helvetica Neue",Arial,sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.5625;
+    margin-top:15px;
+    margin-bottom: 15px;
+    padding: 10px 10px 10px 10px;
+    /*border-style:outset;*/
+    border-radius: 5px;
+    border-width: 2px;
+}
+.uploadTable th {
+    color:whitesmoke;
+}
+td > select{
+  color:black;
+  font-size:16px;
+}
+
+td input[type="text"], td textarea{
+  background-color:#E6D5D5;
+  color:black;
+  min-width: 10px;
+  max-width: 100%;
+  width: 100%;
+}
+
+td textarea {
+  resize:none;
+  min-width: 10px;
+  max-width: 100%;
+  width: 100%;
+}
+#uploadForm{
+  min-height:100%;
+}
+#assignmentForm{
+  height:100%;
+}
+/*Upload Page END*/
+
+
+
+
+
+/* ASSIGNMENT PAGE*/
+.run-assignment-container{
+    margin-left: 50px;
+}
+#canvasPreview {/*
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    left: 75%;
+    right: 0;*/
+    width: 100%;/*640px;*/
+    /*height: 360px;*/
+    background: darkgreen;
+
+}
+#canvasRecord {
+    /*
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    left: 25%;
+    right: 0;*/
+    width:100%; /*640px;*/
+    /*height: 360px;*/
+    background: darkred;
+
+}
+#canvasVideo{
+    width:100%;
+}
+#time{
+    /*    position: absolute;
+        top: 8%;
+        bottom: 0;
+        left: 50%;
+        right: 0;
+        width: 250px;
+        height: 75px;
+
+        margin: 0px 0 0 -125px;*/
+
+}
+
+#video {
+    background: white;
+    /*
+        position: relative;
+        horiz-align: center;
+        top: 90%;
+        left: 50%;
+        margin-left: -50%;*/
+}
+
+#controls{
+    /*position: absolute;
+    top:10%;*/
+}
+.btn-video {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+
+.btn-video-control{
+    background: darkblue;
+    color: #ffffff;
+}
+.btn-video-control:focus{
+    color:#ffffff;
+}
+
+.btn-video-control:hover, .btn-video-control:active, .btn-video-control.active, .open > .dropdown-toggle.btn-video-control {
+    background: mediumblue;
+    color:#ffffff;
+}
+
+.btn-preview{
+    background: darkgreen;
+    color: #ffffff;
+}
+
+.btn-preview:hover, .btn-preview:active, .btn-preview.active, .open > .dropdown-toggle.btn-preview{
+    background: forestgreen;
+    color: #ffffff;
+}
+.btn-preview-active {
+    background: lawngreen;
+    color: #ffffff;
+}
+.btn-preview:focus{
+    color:#ffffff;
+}
+.btn-record{
+    background: darkred;
+    color: #ffffff;
+}
+
+.btn-record:hover, .btn-record:active, .btn-record.active, .open > .dropdown-toggle.btn-record{
+    background: orangered;
+    color: #ffffff;
+}
+.btn-record-active {
+    background: red;
+    color: #ffffff;
+}
+.btn-record:focus{
+    color:#ffffff;
+}
+.btn-take {
+    background: brown;
+    color: #ffffff;
+}
+
+.btn-take:focus{
+    color:#ffffff;
+}
+
+.btn-take:hover, .btn-take:active, .btn-take.active, .open > .dropdown-toggle.btn-take {
+    background: orangered;
+    color:#ffffff;
+}
+.btn-group{
+    margin-bottom: 10px;
+}
+.btn-group-vertical{
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+#controls{
+    padding-left: 50px;
+}
+
+#final{
+    visibility: hidden;
+}
+
+/*RESULT VIDEO PAGE*/
+.result-layout{
+    margin-top:50px;
+}
+.result-canvas{
+    background-color:darkred;
+    margin-bottom:50px;
+}
+#resultVideo{
+    width:100%;
+}
+#resultVideoContainer{
+    background:black;
+    padding: 10px 10px 10px 10px;
+    border-radius: 10px;
+}
+
+
+.glyphicon-volume-off{
+    color: #ac2925;
+    font-size: xx-large;
+}
+
+#subtitle_input_field {
+    padding:5px; border:1px solid #999; border-radius:4px; -moz-border-radius:4px; -web-kit-border-radius:4px; -khtml-border-radius:4px;
+}
+
+li span:hover {
+    background-color: #1b6d85;
+}
+
+.sub-item:active {
+    border-color: #31708f;
+}
+
+.btn-margin {
+    margin: 5px;
+}
+.btn-runAssignment{
+    background-color: lightgrey;
+    margin-left:5px;
+    margin-right:5px;
+    color: black;
+}
+
+.btn-video-control-active {
+    background-color: #286090;
+}
+
+.btn-default:active {
+    border:1px solid #999;
+}

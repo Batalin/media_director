@@ -1,0 +1,37 @@
+.container
+    div.forum-topic.col-lg-8.col-lg-offset-2
+        h1 {{title}}
+        div(ng-repeat="topicMessage in topicMessages| filter: { topicId: topicId }")
+            h2 {{topicMessage.author}}
+            p(id="p:{{topicMessage._id}}")
+                //h2 {{topicMessage.author}}
+                textarea(ng-show="adjustHeight(topicMessage._id)",id="message-area:{{topicMessage._id}}", rows='4', disabled) {{topicMessage.message}}
+                br
+                |Posted: {{topicMessage.date}}
+                input(ng-show="identity.currentUser.isAdmin() || userEquals(identity.currentUser,topicMessage.authorId)",type="button", ng-click="deleteTopicMessage(topicMessage._id)", name="remove", value="Remove").btn.btn-danger.btn-forum
+                input(ng-show="userEquals(identity.currentUser,topicMessage.authorId)",type="button", ng-click="editTopicMessage(topicMessage._id)", name="edit", value="Edit").btn.btn-warning.btn-forum
+                input(ng-show="userEquals(identity.currentUser,topicMessage.authorId)",type="button", ng-click="updateTopicMessage(topicMessage._id)", name="update", value="Update").btn.btn-success.btn-forum
+                br
+        br
+        br
+        div
+            form(name="topicMessageForm", id="topicMessageForm")
+                div(id="uploadTable", class="table-responsive uploadTable")
+                    table(class="table table-inverse")
+                        tr
+                            th New Message:
+                        tr
+                            td
+                                textarea(ng-model="message", name="message",rows="5",form="topicMessageForm")
+                    input(ng-click="newTopicMessage()", type="submit", value="Submit").btn.btn-default
+
+
+
+        br
+        //script.
+            var elements = document.getElementsByTagName("textarea");
+            for (var element in elements) {
+                element.style.overflow = 'hidden';
+                element.style.height = 0;
+                element.style.height = element.scrollHeight + 'px';
+            }

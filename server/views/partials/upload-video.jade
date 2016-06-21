@@ -1,0 +1,52 @@
+.container
+    div(id="uploadForm",class="col-lg-8 col-lg-offset-2")
+        form(action="/upload_videos", method="post", enctype="multipart/form-data", id="assignmentForm", name="assignmentForm",onsubmit="return formSubmit();")
+            div(id="uploadTable", class="table-responsive uploadTable")
+                table(class="table table-inverse")
+                    tr
+                        th Assignment Name
+                        td
+                            input(type="text", name="title", value="Assignment Name")
+                    tr
+                        th(colspan="2") Description:
+                    tr
+                        td(colspan="2")
+                            textarea(name="description",rows="5",form="assignmentForm",id="description") Desicisdiresa
+                    tr
+                        th(colspan="2") Task:
+                    tr
+                        td(colspan="2")
+                            textarea(name="task",rows="5",form="assignmentForm",id="task") Task/Objectives
+                    div(id="fileUploadField")
+                        tr
+                            td
+                                select(name="video1", form="assignmentForm")
+                                    option(value="Camera1") Camera1
+                            td
+                                input(type="file", name="file")
+                        tr
+                            td
+                                select(name="video2", form="assignmentForm")
+                                    option(value="Camera2") Camera2
+                            td
+                                input(type="file", name="file")
+                        tr
+                            td
+                                select(name="video3", form="assignmentForm")
+                                    option(value="Camera3") Camera3
+                            td
+                                input(type="file", name="file")
+                        tr
+                            td
+                                select(name="video4", form="assignmentForm")
+                                    option(value="Camera4") Camera4
+                            td
+                                input(type="file", name="file")
+                input(ng-click="uploadVideos()", type="submit", value="Submit", id="submitButton").btn.btn-default
+                br
+                div(id="upload-notification",ng-show="showMessage()")
+                    p Uploading files... This can take several minutes. Please wait, until you will be automatically redirected back after uploading has finished!
+
+
+
+
